@@ -9,6 +9,7 @@
   }
 
   // Получ. данные из формы добав. хт
+  preg_match('/#([a-z0-9]+)/');
   $tag_name = $_POST["tag_name"];
   $tag_description = $_POST["tag_description"];
   $author_name = $_POST["author_name"];
