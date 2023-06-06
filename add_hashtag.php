@@ -8,13 +8,13 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  // Получ. данные из формы добав. хт
+  // Получаем данные из формы добавления хештега
   preg_match('/#([a-z0-9]+)/');
-  $tag_name = $_POST["tag_name"];
+  $tag_name = $_POST["tag_name"]; 
   $tag_description = $_POST["tag_description"];
   $author_name = $_POST["author_name"];
 
-  // Подгот. запрос на добавление хт в БД
+  // Подготавливаем запрос на добавление хештега в базу данных
   $stmt = $conn->prepare("INSERT INTO hashtags (tag_name, tag_description, author_name) VALUES (?, ?, ?)");
   $stmt->bind_param("sss", $tag_name, $tag_description, $author_name);
   $stmt->execute();
@@ -22,4 +22,6 @@
 
   $conn->close();
   header("Location: index.php");
+
+  
 ?>

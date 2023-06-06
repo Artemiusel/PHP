@@ -8,10 +8,10 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  // Получаем ID хт для удал. из БД
+  // Получаем ID хештега для удаления из базы данных
   $tag_id = $_POST["tag_id"];
 
-  // Подготав. запрос на удаление хт из БД
+  // Подготавливаем запрос на удаление хештега из базы данных
   $stmt = $conn->prepare("DELETE FROM hashtags WHERE id = ?");
   $stmt->bind_param("i", $tag_id);
   $stmt->execute();

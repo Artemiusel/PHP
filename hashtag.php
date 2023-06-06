@@ -8,10 +8,10 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  // Получ. ID хт из GET-парам.
+  // Получаем ID хештега из GET-параметра
   $tag_id = $_GET["id"];
 
-  // Получаем данные хт из БД
+  // Получаем данные хештега из базы данных
   $sql = "SELECT * FROM hashtags WHERE id = " . $tag_id;
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -21,7 +21,7 @@
     $author_name = $row["author_name"];
     $created_at = $row["created_at"];
   } else {
-    // переход на главную если хт не найден
+    // Если хештег не найден, переходим на главную страницу
     header("Location: index.php");
   }
 ?>
